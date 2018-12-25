@@ -5,16 +5,18 @@ const DEFAULT_PROPERTIES = {
     // birthdate: new Date()
     get birthdate() {
         return new Date();
-    }
+    },
     get randomTraits() {
         const traits =[];
         TRAITS.forEach(TRAIT => {
             const traitType = TRAIT.type;
-            const traitValues = TRAIT.value;
-            const traitValues = traitValues[
-                Math.floor(Math.random() * traitValues.length)];
+            const traitValues = TRAIT.values;
 
-            traits.push({traitType, traitValues,})
+            const traitValue = traitValues[
+                Math.floor(Math.random() * traitValues.length)
+            ];
+
+            traits.push({traitType, traitValue,})
         });
         return traits;
     }
