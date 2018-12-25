@@ -1,16 +1,31 @@
+const TRAITS = require('./traits.json');
+
 const DEFAULT_PROPERTIES = {
     nickname: 'unnamed',
     // birthdate: new Date()
     get birthdate() {
         return new Date();
     }
+    get randomTraits() {
+        const traits =[];
+        TRAITS.forEach(TRAIT => {
+            const traitType = TRAIT.type;
+            const traitValues = TRAIT.value;
+            const traitValues = traitValues[
+                Math.floor(Math.random() * traitValues.length)];
+
+            traits.push({traitType, traitValues,})
+        });
+        return traits;
+    }
 }
 
 class Dragon {
-    constructor({ birthdate, nickname } = {}) {
+    constructor({ birthdate, nickname, traits } = {}) {
         //the added{} allows for avoiding the order issues that can arize in big projects.
         this.birthdate = birthdate || DEFAULT_PROPERTIES.birthdate;
         this.nickname= nickname || DEFAULT_PROPERTIES.nickname;
+        this.traits = traits || DEFAULT_PROPERTIES.randomTraits;
 
     }
 }
