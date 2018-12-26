@@ -1,11 +1,25 @@
+const express = require('express');
 const GenerationEngine = require('./engine');
+
+
+const app = express();
 const engine = new GenerationEngine();
+const PORT = 4002;
 
 engine.start();
 
-setTimeout( () => {
-    engine.stop();
-}, 20000);
+app.get('/dragen/new',(req, res) => {
+    res.json({dragen:engine.generation.newDragon() });
+});
+
+app.listen(PORT, () => console.log(`Server Up! 
+    & listening on port ${PORT}`));
+
+// ----------------------------------
+
+// setTimeout( () => {
+//     engine.stop();
+// }, 20000);
 
 
 
