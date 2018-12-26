@@ -1,14 +1,40 @@
-const Generation = require ('./generation');
+const GenerationEngine = require('./engine');
+const engine = new GenerationEngine();
 
-const generation = new Generation();
+engine.start();
 
-console.log('generation', generation);
-
-const noobieGoobie = generation.newDragon();
-
-console.log('noobieGoobie', noobieGoobie );
+setTimeout( () => {
+    engine.stop();
+}, 20000);
 
 
+
+// ------------------------
+
+
+// const Generation = require ('./generation');
+
+// const generation = new Generation();
+
+// console.log('generation', generation);
+
+// const noobieGoobie = generation.newDragon();
+
+// console.log('noobieGoobie', noobieGoobie );
+
+// setTimeout(()=> {
+//     const mimar = generation.newDragon();
+//     console.log('mimar', mimar );
+// }, 15000);
+
+// setTimeout(()=> {
+//     const zazzy = generation.newDragon();
+//     console.log('zazzy', zazzy );
+// }, 3000);
+
+
+
+// ------------------
 // console.log("Hello Node");
 // const Dragon= require('./dragon')
 
