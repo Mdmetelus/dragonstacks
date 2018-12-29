@@ -1,7 +1,7 @@
 const pool = require('../../databasePool');
 
 class GenerationTable {
-    storeGeneration(generation) {
+    static storeGeneration(generation) {
         pool.query(
             'INSERT INTO generation(expiration) VALUES($1)',
             [generation.expitation],
@@ -11,5 +11,6 @@ class GenerationTable {
         );
     }
 }
+
 
 module.exports = GenerationTable;
