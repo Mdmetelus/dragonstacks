@@ -11,6 +11,10 @@ class DragonTable {
                 (error, response) => {
                     if(error) return reject(error);
 
+                    const dragonId = response.rows[0].id;
+
+                    resolve({ dragonId });
+
                 }
             )
         })
